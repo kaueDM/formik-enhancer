@@ -1,1 +1,3 @@
-export const _validSchema = schema => Array.isArray(schema) && schema.length
+export const _validSchema = schema => {
+  return Array.isArray(schema) && schema.length
+}

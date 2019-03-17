@@ -1,4 +1,3 @@
-// @flow
 import { _validSchema } from '../utils'
 
 /**
@@ -10,14 +9,11 @@ import { _validSchema } from '../utils'
  * @return {Object} initialValues object.
  */
 
-const generateInitialValues = (
-  schema: Array<Object>,
-  values?: { field?: string, value?: any } = {}
-): Object => {
+const generateInitialValues = (schema, values) => {
   if (_validSchema(schema)) {
     const output = {}
 
-    schema.forEach((field: Object): void => {
+    schema.forEach(field => {
       output[field['name']] = field['initialValue'] || ''
     })
 

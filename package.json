@@ -8,10 +8,7 @@
     "build": "webpack"
   },
   "standard": {
-    "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ]
+    "parser": "babel-eslint"
   },
   "repository": {
     "type": "git",
@@ -24,15 +21,12 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.3.4",
-    "@babel/preset-flow": "7.0.0",
     "@babel/preset-react": "7.0.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-env": "1.7.0",
-    "eslint-plugin-flowtype": "3.4.2",
-    "flow-bin": "0.95.1",
     "standard": "12.0.1",
     "terser-webpack-plugin": "1.2.3",
     "webpack": "4.29.6",
