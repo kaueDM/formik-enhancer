@@ -2,7 +2,6 @@
   "name": "formik-enhancer",
   "version": "0.0.1",
   "description": "Formik generator",
-  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
@@ -10,7 +9,9 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "plugins": [ "flowtype" ]
+    "plugins": [
+      "flowtype"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,16 +24,17 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.3.4",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-env": "1.7.0",
-    "eslint-plugin-flowtype": "^3.4.2",
-    "flow-bin": "^0.94.0",
-    "standard": "^12.0.1",
-    "uglifyjs-webpack-plugin": "2.1.2",
+    "eslint-plugin-flowtype": "3.4.2",
+    "flow-bin": "0.95.1",
+    "standard": "12.0.1",
+    "terser-webpack-plugin": "1.2.3",
     "webpack": "4.29.6",
     "webpack-cli": "3.2.3"
   },
@@ -43,9 +45,9 @@
     "yup": "0.26.10"
   },
   "dependencies": {
-    "formik": "^1.5.1",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "yup": "^0.26.10"
+    "formik": "1.5.1",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "yup": "0.26.10"
   }
 }

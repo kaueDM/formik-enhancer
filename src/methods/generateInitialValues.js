@@ -1,5 +1,5 @@
 // @flow
-import { _validSchema } from './utils'
+import { _validSchema } from '../utils'
 
 /**
  * Generate Formik's initialValues prop.
@@ -12,7 +12,7 @@ import { _validSchema } from './utils'
 
 const generateInitialValues = (
   schema: Array<Object>,
-  values?: { field?: string, value?: any }
+  values?: { field?: string, value?: any } = {}
 ): Object => {
   if (_validSchema(schema)) {
     const output = {}
@@ -21,7 +21,7 @@ const generateInitialValues = (
       output[field['name']] = field['initialValue'] || ''
     })
 
-    return output
+    return { ...output, ...values }
   }
 
   return console.error('[formik-enhancer] Please inform a populated Array.')

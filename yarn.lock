@@ -99,12 +99,27 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.3.4.tgz#a43357e4bbf4b92a437fb9e465c192848287f27c"
   integrity sha512-tXZCqWtlOOP4wgCp6RjRvLmfuhnqTLy9VHwRochJBCP2nDm27JnnuFEnXFASVyQNHk36jD1tAammsCEEqgscIQ==
 
+"@babel/plugin-syntax-flow@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.2.0.tgz#a765f061f803bc48f240c26f8747faf97c26bf7c"
+  integrity sha512-r6YMuZDWLtLlu0kqIim5o/3TNRAlWb073HwT3e2nKf9I8IIvOggPrnILYPsrrKilmn/mYEMCf/Z07w3yQJF6dg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 "@babel/plugin-syntax-jsx@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.2.0.tgz#0b85a3b4bc7cdf4cc4b8bf236335b907ca22e7c7"
   integrity sha512-VyN4QANJkRW6lDBmENzRszvZf3/4AXaj9YR7GwrWeeN9tEBPuXbmDYVU9bYBN0D70zCWVwUy0HWq2553VCb6Hw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
+
+"@babel/plugin-transform-flow-strip-types@^7.0.0":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.3.4.tgz#00156236defb7dedddc2d3c9477dcc01a4494327"
+  integrity sha512-PmQC9R7DwpBFA+7ATKMyzViz3zCaMNouzZMPZN2K5PnbBbtL3AXFYTkDk+Hey5crQq2A90UG5Uthz0mel+XZrA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-flow" "^7.2.0"
 
 "@babel/plugin-transform-react-display-name@^7.0.0":
   version "7.2.0"
@@ -137,6 +152,14 @@
     "@babel/helper-builder-react-jsx" "^7.3.0"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-jsx" "^7.2.0"
+
+"@babel/preset-flow@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.0.0.tgz#afd764835d9535ec63d8c7d4caf1c06457263da2"
+  integrity sha512-bJOHrYOPqJZCkPVbG1Lot2r5OSsB+iUOaxiHdlOeB1yPWS6evswVHwvkDLZ54WTaTRIk89ds0iHmGZSnxlPejQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.0.0"
 
 "@babel/preset-react@^7.0.0":
   version "7.0.0"
@@ -1176,7 +1199,7 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-cacache@^11.0.2, cacache@^11.2.0:
+cacache@^11.0.2:
   version "11.3.2"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
   integrity sha512-E0zP4EPGDOaT2chM08Als91eYnf8Z+eH1awwwVsngUmgppfM5jjJ8l3z5vO5p5w/I3LsiXawb1sW0VY65pQABg==
@@ -2154,10 +2177,10 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
-flow-bin@^0.94.0:
-  version "0.94.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.94.0.tgz#b5d58fe7559705b73a18229f97edfc3ab6ffffcb"
-  integrity sha512-DYF7r9CJ/AksfmmB4+q+TyLMoeQPRnqtF1Pk7KY3zgfkB/nVuA3nXyzqgsIPIvnMSiFEXQcFK4z+iPxSLckZhQ==
+flow-bin@^0.95.1:
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.95.1.tgz#633113831ccff4b7ee70a2730f63fc43b69ba85f"
+  integrity sha512-06IOC/pqPMNRYtC6AMZEWYR9Fi6UdBC7gImGinPuNUpPZFnP5E9/0cBCl3DWrH4zz/gSM2HdDilU7vPGpYIr2w==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -4388,7 +4411,7 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-terser-webpack-plugin@^1.1.0:
+terser-webpack-plugin@^1.1.0, terser-webpack-plugin@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.2.3.tgz#3f98bc902fac3e5d0de730869f50668561262ec8"
   integrity sha512-GOK7q85oAb/5kE12fMuLdn2btOS9OBZn4VsecpHDywoUC/jLhSAKOiYo0ezx7ss2EXPMzyEWFoE0s1WLE+4+oA==
@@ -4524,28 +4547,6 @@ ua-parser-js@^0.7.18:
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
   integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
-
-uglify-js@^3.0.0:
-  version "3.4.9"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
-  integrity sha512-8CJsbKOtEbnJsTyv6LE6m6ZKniqMiFWmm9sRbopbkGs3gMPPfd3Fh8iIA4Ykv5MgaTbqHr4BaoGLJLZNhsrW1Q==
-  dependencies:
-    commander "~2.17.1"
-    source-map "~0.6.1"
-
-uglifyjs-webpack-plugin@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-2.1.2.tgz#70e5c38fb2d35ee887949c2a0adb2656c23296d5"
-  integrity sha512-G1fJx2uOAAfvdZ77SVCzmFo6mv8uKaHoZBL9Qq/ciC8r6p0ANOL1uY85fIUiyWXKw5RzAaJYZfNSL58Or2hQ0A==
-  dependencies:
-    cacache "^11.2.0"
-    find-cache-dir "^2.0.0"
-    schema-utils "^1.0.0"
-    serialize-javascript "^1.4.0"
-    source-map "^0.6.1"
-    uglify-js "^3.0.0"
-    webpack-sources "^1.1.0"
-    worker-farm "^1.5.2"
 
 union-value@^1.0.0:
   version "1.0.0"

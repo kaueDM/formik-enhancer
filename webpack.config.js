@@ -1,12 +1,15 @@
-var path = require('path')
-// var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: {
+    'web': './src/_web/index.js',
+    'native': './src/_native/index.js'
+  },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    path: path.resolve(__dirname, ''),
+    filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
   module: {
@@ -18,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/react']
+            presets: ['@babel/react', '@babel/flow']
           }
         }
       }
@@ -26,8 +29,8 @@ module.exports = {
   },
   externals: {
     'react': 'commonjs react'
+  },
+  optimization: {
+    minimizer: [new TerserPlugin()]
   }
-  // optimization: {
-  //   minimizer: [new UglifyJsPlugin()]
-  // }
 }
