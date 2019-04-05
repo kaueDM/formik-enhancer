@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   entry: {
     'web': './src/_web/index.js',
-    'native': './src/_native/index.js'
+    'native': './src/_native/index.tsx'
   },
   output: {
     path: path.resolve(__dirname, ''),
@@ -14,6 +14,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
@@ -26,6 +31,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
   externals: {
     'react': 'commonjs react'

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./src",
+    "noImplicitAny": true,
+    "moduleResolution": "Node",
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true
+  }
+}
