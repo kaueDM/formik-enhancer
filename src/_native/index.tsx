@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Formik, InjectedFormikProps } from 'formik'
 
 import renderFields from '../renders/renderFields'
+import renderChildren from '../renders/renderChildren'
 import buildInitialValues from '../methods/buildInitialValues'
 import buildValidationSchema from '../methods/buildValidationSchema'
 
@@ -12,16 +13,17 @@ interface FormProps {
 }
 
 export const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
-  const { schema } = props
+  const { schema, config } = props
 
   return (
     <Formik
-      onSubmit={(v: any): any => console.log(v)}
+      onSubmit={config.onSubmit}
       initialValues={buildInitialValues(schema)}
       validationSchema={buildValidationSchema(schema)}
       render={({ ...props }: any) => (
         <React.Fragment>
           {renderFields(schema, { ...props })}
+          {renderChildren({ config, formikProps: { ...props } })}
         </React.Fragment>
       )}
     />
