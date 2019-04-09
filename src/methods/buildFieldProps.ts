@@ -15,6 +15,12 @@ const buildFieldProps = (field: any): Record<string, any> => {
   delete fieldProps.secure
   delete fieldProps.component
 
+  // Handle input blur (generic event)
+  fieldProps['onBlur'] = (_: void): void => {
+    fieldProps.setFieldTouched(fieldProps['name'])
+    return fieldProps.blurEvent ? fieldProps.blurEvent() : null
+  }
+
   // Text input props
   if (type === 'text') {
     // Set value
@@ -29,11 +35,17 @@ const buildFieldProps = (field: any): Record<string, any> => {
       fieldProps.setFieldTouched(fieldProps['name'], false, true)
       return fieldProps.changeEvent ? fieldProps.changeEvent(inputValue) : null
     }
+  }
 
-    // Handle input blur (if exists)
-    fieldProps['onBlur'] = (_: void): void => {
-      fieldProps.setFieldTouched(fieldProps['name'])
-      return fieldProps.blurEvent ? fieldProps.blurEvent() : null
+  if (type === 'select') {
+    // Set selected
+    fieldProps['selectedValue'] = field['values'][field['name']]
+
+    // Handle text change
+    fieldProps['onValueChange'] = (inputValue: any): void => {
+      fieldProps.setFieldValue(fieldProps['name'], inputValue)
+      fieldProps.setFieldTouched(fieldProps['name'], false, true)
+      return fieldProps.changeEvent ? fieldProps.changeEvent(inputValue) : null
     }
   }
 

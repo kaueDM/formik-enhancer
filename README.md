@@ -5,6 +5,5 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=for-the-badge)](https://standardjs.com)
 ![npm type definitions](https://img.shields.io/npm/types/typescript.svg?style=for-the-badge)
 
-
 Package name holder.
 Currently under construction.
