@@ -31,7 +31,10 @@ const _renderField: React.FC<FieldProps> = ({ field, index }) => {
   if (field.type === 'select') {
     return (
       <FieldComponent key={index} {...fieldProps}>
-        {_renderOptions(field.options, field.renderOption)}
+        {
+          field.renderOption &&
+          _renderOptions(field.options, field.renderOption)
+        }
       </FieldComponent>
     )
   }
