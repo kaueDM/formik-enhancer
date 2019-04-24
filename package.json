@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Formik generator",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack --watch",
     "build": "webpack",
     "standard": "standard"
@@ -12,7 +12,8 @@
     "parser": "typescript-eslint-parser",
     "plugins": [
       "typescript"
-    ]
+    ],
+    "env": ["jest"]
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.7.1",
     "standard": "12.0.1",
     "terser-webpack-plugin": "1.2.3",
     "ts-loader": "^5.3.3",

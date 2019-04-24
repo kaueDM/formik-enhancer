@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import buildFieldProps from '../methods/buildFieldProps'
 
-interface FieldProps {
+interface IFields {
   field: any
   index: string
 }
@@ -10,10 +10,10 @@ const _isValidArray = (toTest: any): boolean => {
   return !!(Array.isArray(toTest) && toTest.length)
 }
 
-const _renderOptions = (
+const _renderOptions: any = (
   options: Array<Record<string, any>>,
   renderOption: any
-): any => {
+) => {
   if (_isValidArray(options)) {
     return options.map((opt: Record<string, any>, index: number) => {
       return renderOption(opt, index.toString())
@@ -24,7 +24,7 @@ const _renderOptions = (
 }
 
 // FC stands to FunctionComponent. Either one can be used.
-const _renderField: React.FC<FieldProps> = ({ field, index }) => {
+const _renderField: React.FC<IFields> = ({ field, index }) => {
   const fieldProps = buildFieldProps(field)
   const FieldComponent = field.component
 
