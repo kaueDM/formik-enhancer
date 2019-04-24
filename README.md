@@ -6,20 +6,20 @@
 ![npm type definitions](https://img.shields.io/npm/types/typescript.svg?style=for-the-badge)
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kaueDM/formik-enhancer.svg?style=for-the-badge)
 
-## DISCLAIMERS
+### DISCLAIMERS
 
-Currently under construction. Feel free to report issues or send PRs.
+* Currently under construction. Feel free to report issues or send PRs.
 
-For now, it's only available for React Native. You can try it in React, 
+* For now, it's only available for React Native. You can try it in React, 
 but will probably break.
 
 
 ## Instalation
->`yarn add formik-enhancer`
+`yarn add formik-enhancer`
 
 If you want to use validations, install **Yup**
 
->`yarn add yup`
+`yarn add yup`
 
 ## Usage
 
@@ -30,6 +30,7 @@ generateForm({ config, values, schema })
 ```
 
 ### **`config: Record<string, any>`**
+
 | Prop       | Description | Default |
 | ---------- |-------------| --------|
 | `onSubmit` | **[REQUIRED]** Form submit method. Receives current form values as parameter. | _None_ |
@@ -44,6 +45,7 @@ from `schema` fields.
 ### **`schema: Array<Record<string, any>>`**
 
 **generic props:**
+
 | Prop           | Description | Default |
 | -------------- |-------------| --------|
 | `type`         | Input type. Can be `text` or `select` (more types coming soon). | `text` |
@@ -56,6 +58,7 @@ from `schema` fields.
 | `changeEvent` | Custom `onChange` event. Receives the input value as parameter. | _None_ |
 
 **`select` type props:**
+
 | Prop           | Description | Default |
 | -------------- |-------------| --------|
 | `items`        | **[REQUIRED]** An Array of possible options for your select input. Should have at least two keys, `label` and `value`,  e.g. `{ label: 'Foo', value: 'foo_option' }`  | _None_ |
