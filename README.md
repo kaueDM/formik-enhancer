@@ -48,7 +48,7 @@ from `schema` fields.
 
 | Prop           | Description | Default |
 | -------------- |-------------| --------|
-| `name`         | **[REQUIRED]** Field name. `formik-enhancer` will use it to keep track of everything. | `text` |
+| `name`         | **[REQUIRED]** Field name. `formik-enhancer` will use it to keep track of everything. | `''` |
 | `type`         | Input type. Can be `text` or `select` (more types coming soon). | `text` |
 | `secure`       | Boolean that represents if it's an secure field (for passwords, etc). | `false` |
 | `placeholder`  | Text to display while your input dont have a value. | _None_ |
