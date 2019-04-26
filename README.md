@@ -48,7 +48,7 @@ from `schema` fields.
 
 | Prop           | Description | Default |
 | -------------- |-------------| --------|
-| `name`         | **[REQUIRED]** Field name. `formik-enhancer` will use it to keep track of everything. | `''` |
+| `name`         | **[REQUIRED]** Field name. `formik-enhancer` will use it to keep track of everything. | _None_ |
 | `type`         | Input type. Can be `text` or `select` (more types coming soon). | `text` |
 | `secure`       | Boolean that represents if it's an secure field (for passwords, etc). | `false` |
 | `placeholder`  | Text to display while your input dont have a value. | _None_ |
@@ -80,7 +80,7 @@ keep track of what you doing.
 
 Every `field` will receive two extra props: `error` and `touched`. This props values
 are managed by `formik-enhancer` and you can use it to render validation errors, etc. You can see
-this in action in the example below.
+this in action in the example below or [try this snack](https://expo.io/@kaue_dm/formik-enhancer-example).
 
 ## Example
 
@@ -101,7 +101,27 @@ export default SomeClass extends React.Component {
     )
   }
 }
+
+// Some fields
+const TextField = ({ ...props }) => (
+  <Input
+    {...props}
+    errorStyle={{ color: 'red' }}
+    errorMessage={props.touched && props.error ? props.error : ''}
+  />
+)
+
+const SelectField = ({ ...props }) => (
+  <React.Fragment>
+    <Text>{props.label}</Text>
+    <RNPickerSelect {...props} />
+    {props.error &&
+      props.touched &&
+      <Text style={{ color: 'red' }}>{props.error}</Text>}
+  </React.Fragment>
+)
 ```
+
 
 ```js
 // Field schema. Based on this array, formik-enhancer will build your form.
