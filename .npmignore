@@ -1,0 +1,9 @@
+# source
+src/
+
+# dev stuff
+.watchmanconfig
+.eslintrc.json
+tsconfig.json
+webpack.config.js
+yarn.lock

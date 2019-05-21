@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { Formik, InjectedFormikProps } from 'formik'
 
-import renderFields from '../renders/renderFields'
-import renderChildren from '../renders/renderChildren'
-import buildInitialValues from '../methods/buildInitialValues'
-import buildValidationSchema from '../methods/buildValidationSchema'
+import renderFields from './renders/renderFields'
+import renderChildren from './renders/renderChildren'
+import clearFormikProps from './methods/clearFormikProps'
+import buildInitialValues from './methods/buildInitialValues'
+import buildValidationSchema from './methods/buildValidationSchema'
 
 interface FormProps {
   config: Record<string, any>
@@ -12,7 +13,7 @@ interface FormProps {
   schema: Array<Record<string, any>>
 }
 
-export const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
+const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
   const { schema, config } = props
 
   return (
@@ -22,10 +23,12 @@ export const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
       validationSchema={buildValidationSchema(schema)}
       render={({ ...props }: any) => (
         <React.Fragment>
-          {renderFields(schema, { ...props })}
+          {renderFields(schema, clearFormikProps(props))}
           {renderChildren({ config, formikProps: { ...props } })}
         </React.Fragment>
       )}
     />
   )
 }
+
+export default generateForm

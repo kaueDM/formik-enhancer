@@ -13,7 +13,9 @@
     "plugins": [
       "typescript"
     ],
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,33 +29,30 @@
   "devDependencies": {
     "@babel/core": "7.3.4",
     "@babel/preset-react": "7.0.0",
-    "@types/react": "^16.8.11",
-    "@types/react-dom": "^16.8.3",
-    "@types/yup": "^0.26.12",
+    "@types/react": "16.8.11",
+    "@types/react-dom": "16.8.3",
+    "@types/yup": "0.26.12",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-env": "1.7.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-typescript": "^0.14.0",
-    "jest": "^24.7.1",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-node": "8.0.1",
+    "eslint-plugin-promise": "4.1.1",
+    "eslint-plugin-standard": "4.0.0",
+    "eslint-plugin-typescript": "0.14.0",
+    "jest": "24.7.1",
     "standard": "12.0.1",
     "terser-webpack-plugin": "1.2.3",
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.4.1",
-    "typescript-eslint-parser": "^22.0.0",
+    "ts-loader": "5.3.3",
+    "typescript": "3.4.1",
+    "typescript-eslint-parser": "22.0.0",
     "webpack": "4.29.6",
     "webpack-cli": "3.2.3"
   },
   "peerDependencies": {
-    "formik": "1.5.2",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
     "yup": "0.26.10"
   },
   "dependencies": {

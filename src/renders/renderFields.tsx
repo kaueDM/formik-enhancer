@@ -23,7 +23,6 @@ const _renderOptions: any = (
   return null
 }
 
-// FC stands to FunctionComponent. Either one can be used.
 const _renderField: React.FC<IFields> = ({ field, index }) => {
   const fieldProps = buildFieldProps(field)
   const FieldComponent = field.component
@@ -46,7 +45,6 @@ const _renderField: React.FC<IFields> = ({ field, index }) => {
  * @function renderFields
  * Iterates the schema and render fields
  */
-
 const renderFields = (schema: Record<string, any>, formikProps: any) => {
   return schema.map((field: any, index: string) => {
     return _renderField({ field: { ...field, ...formikProps }, index })
