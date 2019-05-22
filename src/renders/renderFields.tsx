@@ -10,20 +10,19 @@ const _isValidArray = (toTest: any): boolean => {
   return !!(Array.isArray(toTest) && toTest.length)
 }
 
-const _renderOptions: any = (
-  options: Array<Record<string, any>>,
-  renderOption: any
+const _renderItems: any = (
+  items: Array<Record<string, any>>,
+  renderItem: any
 ) => {
-  if (_isValidArray(options)) {
-    return options.map((opt: Record<string, any>, index: number) => {
-      return renderOption(opt, index.toString())
+  if (_isValidArray(items)) {
+    return items.map((opt: Record<string, any>, index: number) => {
+      return renderItem(opt, index.toString())
     })
   }
 
   return null
 }
 
-// FC stands to FunctionComponent. Either one can be used.
 const _renderField: React.FC<IFields> = ({ field, index }) => {
   const fieldProps = buildFieldProps(field)
   const FieldComponent = field.component
@@ -32,8 +31,8 @@ const _renderField: React.FC<IFields> = ({ field, index }) => {
     return (
       <FieldComponent key={index} {...fieldProps}>
         {
-          field.renderOption &&
-          _renderOptions(field.options, field.renderOption)
+          field.renderItem &&
+          _renderItems(field.items, field.renderItem)
         }
       </FieldComponent>
     )
@@ -46,7 +45,6 @@ const _renderField: React.FC<IFields> = ({ field, index }) => {
  * @function renderFields
  * Iterates the schema and render fields
  */
-
 const renderFields = (schema: Record<string, any>, formikProps: any) => {
   return schema.map((field: any, index: string) => {
     return _renderField({ field: { ...field, ...formikProps }, index })

@@ -1,24 +1,23 @@
-const _getValueModifier = (type: string): string => {
-  const possibleTypes: Array<Record<string, string>> = [
-    { type: 'text', prop: 'onChangeText' },
-    { type: 'select', prop: 'onValueChange' }
-  ]
+import pickModifier from './pickModifier'
+import checkPlatform from './checkPlatform'
+import clearFieldProps from './clearFieldProps'
+import addPlatformFieldProps from './addPlatformFieldProps'
 
-  return possibleTypes.filter((x: Record<string, string>) => {
-    return x.type === type
-  })[0]['prop']
+const _getInputValue = (event: any): any => {
+  return checkPlatform() === 'native' ? event : event.target.value
 }
 
 /**
  * @function buildFieldProps
- * Generate an object containing all the field props
+ * Generate an object containing all the field props.
+ * @return {object} - Field props.
  */
 
 const buildFieldProps = (field: any): Record<string, any> => {
   const type: string = field.type || 'text'
 
   const fieldProps: Record<string, any> = {
-    ...field,
+    ...addPlatformFieldProps(field),
     error: field['errors'][field['name']],
     touched: field['touched'][field['name']]
   }
@@ -33,27 +32,13 @@ const buildFieldProps = (field: any): Record<string, any> => {
   }
 
   // Handle input value
-  fieldProps[_getValueModifier(type)] = (inputValue: any): void => {
-    fieldProps.setFieldValue(fieldProps['name'], inputValue)
+  fieldProps[pickModifier(type)] = (inputValue: any): void => {
     fieldProps.setFieldTouched(fieldProps['name'], false, true)
+    fieldProps.setFieldValue(fieldProps['name'], _getInputValue(inputValue))
     return fieldProps.changeEvent ? fieldProps.changeEvent(inputValue) : null
   }
 
-  // Text input props
-  if (type === 'text') {
-    // Set value
-    fieldProps['value'] = field['values'][field['name']]
-
-    // Handle protected input
-    fieldProps['secureTextEntry'] = field['secure']
-  }
-
-  if (type === 'select') {
-    // Set selected
-    fieldProps['selectedValue'] = field['values'][field['name']]
-  }
-
-  return fieldProps
+  return clearFieldProps(fieldProps)
 }
 
 export default buildFieldProps
