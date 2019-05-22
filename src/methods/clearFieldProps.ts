@@ -11,6 +11,7 @@ const _propsToRemove: Array<string> = [
   'validation',
   'items',
   'error',
+  'options',
   'renderOption'
 ]
 
