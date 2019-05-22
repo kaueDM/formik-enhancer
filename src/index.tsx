@@ -18,6 +18,7 @@ const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
 
   return (
     <Formik
+      enableReinitialize
       onSubmit={config.onSubmit}
       initialValues={buildInitialValues(schema)}
       validationSchema={buildValidationSchema(schema)}
