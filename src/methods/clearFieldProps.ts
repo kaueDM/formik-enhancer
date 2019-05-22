@@ -1,19 +1,27 @@
-const _propsToRemove: Array<string> = [
-  'setFieldError',
-  'setFieldTouched',
-  'setFieldValue',
-  'handleBlur',
-  'handleChange',
+import checkPlatform from './checkPlatform'
+
+const _genericPropsToRemove: Array<string> = [
   'blurEvent',
   'touched',
   'values',
   'errors',
   'validation',
-  'items',
   'error',
-  'options',
-  'renderOption'
+  'renderItem'
 ]
+
+const _webPropsToRemove: Array<string> = [
+  'setFieldError',
+  'setFieldTouched',
+  'setFieldValue',
+  'handleBlur',
+  'handleChange',
+  'items'
+]
+
+const _propsToRemove: Array<string> = checkPlatform() === 'web'
+  ? [..._genericPropsToRemove, ..._webPropsToRemove]
+  : _genericPropsToRemove
 
 /**
  * @function clearFieldProps

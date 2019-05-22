@@ -13,14 +13,15 @@ const _webProps = (field: any): Record<string, any> => {
 
 const _nativeProps = (field: any): Record<string, any> => {
   const type: string = field.type || 'text'
-  const nativeProps: Record<string, any> = {}
+  const nativeProps: Record<string, any> = { ...field }
 
   if (type === 'text') {
-    nativeProps['secureTextEntry'] = field['secure']
     nativeProps['value'] = field['values'][field['name']]
+    field['secure'] && (nativeProps['secureTextEntry'] = true)
   }
 
   if (type === 'select') {
+    nativeProps['items'] = field['items']
     nativeProps['selectedValue'] = field['values'][field['name']]
   }
 

@@ -10,13 +10,13 @@ const _isValidArray = (toTest: any): boolean => {
   return !!(Array.isArray(toTest) && toTest.length)
 }
 
-const _renderOptions: any = (
-  options: Array<Record<string, any>>,
-  renderOption: any
+const _renderItems: any = (
+  items: Array<Record<string, any>>,
+  renderItem: any
 ) => {
-  if (_isValidArray(options)) {
-    return options.map((opt: Record<string, any>, index: number) => {
-      return renderOption(opt, index.toString())
+  if (_isValidArray(items)) {
+    return items.map((opt: Record<string, any>, index: number) => {
+      return renderItem(opt, index.toString())
     })
   }
 
@@ -31,8 +31,8 @@ const _renderField: React.FC<IFields> = ({ field, index }) => {
     return (
       <FieldComponent key={index} {...fieldProps}>
         {
-          field.renderOption &&
-          _renderOptions(field.options, field.renderOption)
+          field.renderItem &&
+          _renderItems(field.items, field.renderItem)
         }
       </FieldComponent>
     )
