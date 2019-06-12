@@ -117,7 +117,7 @@ const schema = [
     label: 'Inform your password',
     placeholder: 'Use at least 8 characters',
     validation: Yup.string().min(8, 'Too short!').required('Required field'),
-    component: RNEField
+    component: TextField
     blurEvent: _ => console.log('This is my custom blur event!')
   }
 ]
