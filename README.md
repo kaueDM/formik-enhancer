@@ -99,7 +99,7 @@ const schema = [
     placeholder: 'e.g. JohnDoe',
     initialValue: 'Foo', 
     validation: Yup.string().required('Required field'),
-    component: RNEField
+    component: TextField
   },
   {
     type: 'select',
