@@ -2,11 +2,9 @@ import checkPlatform from './checkPlatform'
 
 const _genericPropsToRemove: Array<string> = [
   'blurEvent',
-  'touched',
   'values',
   'errors',
   'validation',
-  'error',
   'renderItem'
 ]
 
@@ -35,6 +33,8 @@ const clearFieldProps = (props: Record<string, any>): Record<string, any> => {
   Object.keys(props).forEach((key: string): any => {
     _propsToRemove.indexOf(key) > -1 && delete output[key]
   })
+
+  console.log('Props that we keep: ', output)
 
   return output
 }
