@@ -47,6 +47,7 @@ from `schema` fields.
 | `name`         | **[REQUIRED]** Field name. `formik-enhancer` will use it to keep track of everything. | _None_ |
 | `type`         | Input type. Can be `text` or `select` (more types coming soon). In the web, you can use `password` or `email` too. | `text` |
 | `placeholder`  | Text to display while your input dont have a value. | _None_ |
+| `mask`  | Custom mask function. See examples below. | _None_ |
 | `initialValue` | Initial input value. | `''` |
 | `validation`   | Check [Yup docs](https://github.com/jquense/yup) | _None_ |
 | `component`    | **[REQUIRED]** As the name indicates, the input component you want to render. | _None_ |
@@ -178,4 +179,28 @@ const SelectField = ({ ...props }) => (
       <Text style={{ color: 'red' }}>{props.error}</Text>}
   </React.Fragment>
 )
+```
+
+For masks, you can pass any function that receives a value as parameter:
+```ts
+interface PhoneInterface {
+  (input: string): string
+}
+
+const phone: PhoneInterface = (input) => {
+  return input
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '($1) $2')
+    .replace(/(\d{4})(\d)/, '$1 $2')
+    .replace(/(\d{4}) (\d)(\d{4})/, '$1$2 $3')
+    .replace(/( \d{4})\d+?$/, '$1')
+}
+
+export default phone
+```
+
+```js
+  name: 'phone',
+  label: 'What is your phone?',
+  mask: phoneMask
 ```
