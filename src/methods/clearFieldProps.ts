@@ -34,8 +34,6 @@ const clearFieldProps = (props: Record<string, any>): Record<string, any> => {
     _propsToRemove.indexOf(key) > -1 && delete output[key]
   })
 
-  console.log('Props that we keep: ', output)
-
   return output
 }
 
