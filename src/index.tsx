@@ -14,14 +14,14 @@ interface FormProps {
 }
 
 const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
-  const { schema, config } = props
+  const { schema, config, values = {} } = props
 
   return (
     <Formik
       enableReinitialize
       onSubmit={config.onSubmit}
-      initialValues={buildInitialValues(schema)}
       validationSchema={buildValidationSchema(schema)}
+      initialValues={{ ...buildInitialValues(schema), ...values }}
       render={({ ...props }: any) => (
         <React.Fragment>
           {renderFields(schema, clearFormikProps(props))}
