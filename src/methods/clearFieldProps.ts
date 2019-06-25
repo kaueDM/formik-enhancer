@@ -17,10 +17,6 @@ const _webPropsToRemove: Array<string> = [
   'items'
 ]
 
-const _propsToRemove: Array<string> = checkPlatform() === 'web'
-  ? [..._genericPropsToRemove, ..._webPropsToRemove]
-  : _genericPropsToRemove
-
 /**
  * @function clearFieldProps
  * Remove props that are unnecessary after our field building.
@@ -29,6 +25,11 @@ const _propsToRemove: Array<string> = checkPlatform() === 'web'
  */
 const clearFieldProps = (props: Record<string, any>): Record<string, any> => {
   const output = { ...props }
+
+  const _propsToRemove: Array<string> = checkPlatform() === 'web' &&
+    props.type !== 'custom'
+    ? [..._genericPropsToRemove, ..._webPropsToRemove]
+    : _genericPropsToRemove
 
   Object.keys(props).forEach((key: string): any => {
     _propsToRemove.indexOf(key) > -1 && delete output[key]

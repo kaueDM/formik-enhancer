@@ -26,6 +26,7 @@ const generateForm = (props: InjectedFormikProps<FormProps, null>) => {
         <React.Fragment>
           {renderFields(schema, clearFormikProps(props))}
           {renderChildren({ config, formikProps: { ...props } })}
+          {console.log('formik values: ', props.values)}
         </React.Fragment>
       )}
     />
