@@ -1,6 +1,7 @@
 import pickModifier from './pickModifier'
 import checkPlatform from './checkPlatform'
 import clearFieldProps from './clearFieldProps'
+import buildBlurEventProps from './buildBlurEventProps'
 import addPlatformFieldProps from './addPlatformFieldProps'
 
 const _getInputValue = (event: any): any => {
@@ -32,7 +33,9 @@ const buildFieldProps = (field: any): Record<string, any> => {
   // Handle input blur (generic event)
   fieldProps['onBlur'] = (_: void): void => {
     fieldProps.setFieldTouched(fieldProps['name'])
-    return fieldProps.blurEvent ? fieldProps.blurEvent() : null
+    return fieldProps.blurEvent
+      ? fieldProps.blurEvent(buildBlurEventProps(fieldProps))
+      : null
   }
 
   // Handle input value

@@ -51,7 +51,7 @@ from `schema` fields.
 | `initialValue` | Initial input value. | `''` |
 | `validation`   | Check [Yup docs](https://github.com/jquense/yup) | _None_ |
 | `component`    | **[REQUIRED]** As the name indicates, the input component you want to render. | _None_ |
-| `blurEvent`    | Custom `onBlur` event. | _None_ |
+| `blurEvent`    | Custom `onBlur` event. Receives an object of useful props (`name`, `value`, `error`, `touched`, `setFieldValue`, `setFieldError` and `setFieldTouched`). | _None_ |
 | `changeEvent`  | Custom `onChange` event. Receives the input value as parameter. | _None_ |
 
 **native-only props:**
